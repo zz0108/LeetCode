@@ -1,26 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/Users/suyifeng/Documents/GitHub/LeetCode/LeetCode/Tools/Tools.csproj": {}
+    "C:\\Users\\nn125\\OneDrive\\桌面\\SideProject\\LeetCode\\LeetCode\\Tools\\Tools.csproj": {}
   },
   "projects": {
-    "/Users/suyifeng/Documents/GitHub/LeetCode/LeetCode/Tools/Tools.csproj": {
+    "C:\\Users\\nn125\\OneDrive\\桌面\\SideProject\\LeetCode\\LeetCode\\Tools\\Tools.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/suyifeng/Documents/GitHub/LeetCode/LeetCode/Tools/Tools.csproj",
+        "projectUniqueName": "C:\\Users\\nn125\\OneDrive\\桌面\\SideProject\\LeetCode\\LeetCode\\Tools\\Tools.csproj",
         "projectName": "Tools",
-        "projectPath": "/Users/suyifeng/Documents/GitHub/LeetCode/LeetCode/Tools/Tools.csproj",
-        "packagesPath": "/Users/suyifeng/.nuget/packages/",
-        "outputPath": "/Users/suyifeng/Documents/GitHub/LeetCode/LeetCode/Tools/obj/",
+        "projectPath": "C:\\Users\\nn125\\OneDrive\\桌面\\SideProject\\LeetCode\\LeetCode\\Tools\\Tools.csproj",
+        "packagesPath": "C:\\Users\\nn125\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\nn125\\OneDrive\\桌面\\SideProject\\LeetCode\\LeetCode\\Tools\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/suyifeng/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\nn125\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -54,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.201/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LeetCode108
-build_property.ProjectDir = /Users/suyifeng/Documents/GitHub/LeetCode/LeetCode/LeetCode108/
+build_property.ProjectDir = C:\Users\nn125\OneDrive\桌面\SideProject\LeetCode\LeetCode\LeetCode108\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
