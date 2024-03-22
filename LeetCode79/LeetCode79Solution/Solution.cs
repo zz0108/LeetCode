@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Dumpify;
 
 namespace LeetCode79Solution
 {
@@ -13,86 +14,63 @@ namespace LeetCode79Solution
         {
             var start = word[0];
 
-            var rows = board.Length;
+            var visited = new bool[board.Length, board[0].Length];
 
-            var cols = board[0].Length;
-
-            var visited = new bool[rows, cols];
-
-            var tempWord = new StringBuilder();
-
-            var isExist = false;
-
-            for (var i = 0; i < rows; i++)
+            for (var i = 0; i < board.Length; i++)
             {
-                for (var j = 0; j < cols; j++)
+                for (var j = 0; j < board[0].Length; j++)
                 {
                     if (board[i][j] != start) continue;
 
-                    tempWord.Append(board[i][j]);
 
                     visited[i,j] = true;
 
-                    Dfs(i, j, word, board, tempWord, isExist, visited);
+                    if (board[i][j] == word[0] && Dfs(i, j, word, board, 0,visited))
+                    {
+                        return true;
+                    }
 
                     visited[i, j] = false;
 
-                    if (tempWord.Length > 0)
-                    {
-                        tempWord.Remove(tempWord.Length - 1, 1);
-                    }
-
-                    if (isExist) return true;
                 }
             }
 
             return false;
         }
 
-        private void Dfs(int x, int y, string word, char[][] board, StringBuilder tempWord, bool isExist,
+        private bool Dfs(int x, int y, string word, char[][] board,int k,
             bool[,] visited)
         {
-
-            if (tempWord.ToString() == word)
+            if (board[x][y] == word[k])
             {
-                isExist = true;
-                return;
-            }
-
-            var rows = board.Length;
-
-            var cols = board[0].Length;
-
-            int[] dx = [0, 1, 0, -1];
-            int[] dy = [1, 0, -1, 0];
-
-            for (var i = 0; i < 4; i++)
-            {
-                var newX = dx[i] + x;
-                var newY = dy[i] + y;
-
-                if(!IsValid(newX,newY,rows,cols) || visited[newX,newY]) continue;
-
-                tempWord.Append(board[newX][newY]);
-
-                visited[newX,newY] = true;
-
-                Dfs(newX, newY, word, board, tempWord, isExist, visited);
-
-                if (tempWord.Length > 0)
+                if (k == word.Length - 1)
                 {
-                    tempWord.Remove(tempWord.Length - 1, 1);
+                    return true;
                 }
 
-                visited[newX, newY] = false;
+                visited[x, y] = true;
 
-                if (isExist) return;
+                int[] dx = [0, 1, 0, -1];
+                int[] dy = [1, 0, -1, 0];
+
+                for (var i = 0; i < 4; i++)
+                {
+                    var newX = dx[i] + x;
+                    var newY = dy[i] + y;
+
+                    if (IsValid(newX, newY, board) && !visited[newX, newY] && Dfs(newX, newY, word, board, k + 1, visited))
+                        return true;
+                }
+
+                visited[x, y] = false;
             }
+
+            return false;
         }
 
-        private bool IsValid(int x, int y,int rows,int cols)
+        private bool IsValid(int x, int y, char[][] board)
         {
-            return x >= 0 && y >= 0 && x < rows && y < cols;
+            return x > -1 && x < board.Length && y > -1 && y < board[0].Length;
         }
     }
 }
