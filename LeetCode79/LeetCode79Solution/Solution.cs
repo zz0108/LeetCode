@@ -22,7 +22,6 @@ namespace LeetCode79Solution
                 {
                     if (board[i][j] != start) continue;
 
-
                     visited[i,j] = true;
 
                     if (board[i][j] == word[0] && Dfs(i, j, word, board, 0,visited))
@@ -41,29 +40,28 @@ namespace LeetCode79Solution
         private bool Dfs(int x, int y, string word, char[][] board,int k,
             bool[,] visited)
         {
-            if (board[x][y] == word[k])
+            if (board[x][y] != word[k]) return false;
+
+            if (k == word.Length - 1)
             {
-                if (k == word.Length - 1)
-                {
-                    return true;
-                }
-
-                visited[x, y] = true;
-
-                int[] dx = [0, 1, 0, -1];
-                int[] dy = [1, 0, -1, 0];
-
-                for (var i = 0; i < 4; i++)
-                {
-                    var newX = dx[i] + x;
-                    var newY = dy[i] + y;
-
-                    if (IsValid(newX, newY, board) && !visited[newX, newY] && Dfs(newX, newY, word, board, k + 1, visited))
-                        return true;
-                }
-
-                visited[x, y] = false;
+                return true;
             }
+
+            visited[x, y] = true;
+
+            int[] dx = [0, 1, 0, -1];
+            int[] dy = [1, 0, -1, 0];
+
+            for (var i = 0; i < 4; i++)
+            {
+                var newX = dx[i] + x;
+                var newY = dy[i] + y;
+
+                if (IsValid(newX, newY, board) && !IsVisited(newX,newY,visited) && Dfs(newX, newY, word, board, k + 1, visited))
+                    return true;
+            }
+
+            visited[x, y] = false;
 
             return false;
         }
@@ -71,6 +69,11 @@ namespace LeetCode79Solution
         private bool IsValid(int x, int y, char[][] board)
         {
             return x > -1 && x < board.Length && y > -1 && y < board[0].Length;
+        }
+
+        private bool IsVisited(int x,int y,bool[,] visited)
+        {
+            return visited[x, y];
         }
     }
 }
